@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Report";
+}
+
+<h2></h2>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+
+
+
+<script type="text/javascript">
+$(function () {
+            //var labels = 'platform_family.date';
+            //var datas = 'platform_family.Total';
+            var labelsArray = new Array("R", "L", "H");
+            var dataArray = new Array("5", "6", "7", "8");
+            //for (var i = 0; i <labels.split(',').length; i++) {
+            //    labelsArray.push(labels.split(',')[i]);
+            //    dataArray.push(datas.split(',')[i]);
+            //}
+            varctx1 = document.getElementById("lineChart").getContext('2d');
+            varlineChart = new Chart(ctx1, {
+                type: 'bar',
+                data: {
+                    labels: labelsArray,
+                    datasets: [{
+                        label: 'Mountain Bike Order Report',
+                        backgroundColor: '#3EB9DC',
+                        data: dataArray
+                    }]
+                },
+                options: {
+                    tooltips: { mode: 'index', intersect: false },
+                    responsive: true,
+                    scales: {
+                        xAxes: [{ stacked: true }],
+                        yAxes: [{ stacked: true }]
+                    }
+                }
+            });
+        });
+    </script>
+    <canvas id="lineChart" height="150" width="200"></canvas>
+

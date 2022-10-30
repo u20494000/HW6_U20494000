@@ -1,0 +1,66 @@
+﻿@model IEnumerable<HW6_U20494000.Models.order_items>
+
+@{
+    ViewBag.Title = "Index";
+    
+}
+
+<h2>Orders</h2>
+<div>
+    <input type="date" />
+    <button>Search</button>
+
+</div><br />
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.product.product_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.list_price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.quantity)
+        </th>
+        <th>
+            Total
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.order.order_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.order.order_date)
+        </th>
+
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.product_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.list_price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.quantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Total)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.order_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.date)
+        </td>
+        <td>
+
+            @Html.DisplayFor(modelItem => item.grandTotal)
+        </td>
+    </tr>
+}
+
+</table>
